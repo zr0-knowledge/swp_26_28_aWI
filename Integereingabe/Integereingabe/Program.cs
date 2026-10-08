@@ -4,24 +4,38 @@ class Program
 {
     static void Main()
     {
-        string antwort = "";
+        const string korrekteAntwort = "kolibri";
+        bool istRichtig = false;
 
-        while (antwort != "kolibri")
+        do
         {
             Console.Write("Welcher Vogel ist der einzige Vogel, der rückwärts fliegen kann? ");
-            string input = (Console.ReadLine() ?? "").Trim();
-            antwort = input.ToLower();
+            string input = Console.ReadLine()?.Trim() ?? string.Length;
 
-            string typ = input switch
+            string datentypBeschreibung = BestimmeDatentyp(input);
+            Console.WriteLine($"-> Erkannter Datentyp: {datentypBeschreibung}");
+
+            if (input.Equals(korrekteAntwort, StringComparison.OrdinalIgnoreCase))
             {
-                _ when int.TryParse(input, out _) => "Das ist kein Vogel, das ist ein Integer (Ganzzahl)",
-                _ when bool.TryParse(input, out _) => "Das ist kein Vogel, das ist ein Boolean (Wahr/Falsch)",
-                _ when double.TryParse(input, out _) => "Das ist kein Vogel, das ist ein Double (Kommazahl)",
-                _ => "Das ist ein Vogel, das ist ein String (Text)"
-            };
+                Console.WriteLine("Richtig!");
+                istRichtig = true;
+            }
+            else
+            {
+                Console.WriteLine("Falsch! Versuch es noch einmal.\n");
+            }
 
-            Console.WriteLine($"-> Erkannter Datentyp: {typ}");
-            Console.WriteLine(antwort == "kolibri" ? "Richtig!" : "Falsch! Versuch es noch einmal.\n");
-        }
+        } while (!istRichtig);
+    }
+
+    private static string BestimmeDatentyp(string input)
+    {
+        return input switch
+        {
+            _ when int.TryParse(input, out _) => "Integer (Ganzzahl)",
+            _ when bool.TryParse(input, out _) => "Boolean (Wahr/Falsch)",
+            _ when double.TryParse(input, out _) => "Double (Kommazahl)",
+            _ => "String (Text)"
+        };
     }
 }
