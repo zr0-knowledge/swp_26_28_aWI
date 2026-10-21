@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO; // Wichtig für die InvalidDataException
+using System.IO; 
 using KuhTest2;
 
 try

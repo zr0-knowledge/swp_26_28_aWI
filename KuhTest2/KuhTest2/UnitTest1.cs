@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO; // Wichtig für die InvalidDataException
+using System.IO; 
 using System.Text;
 
 namespace KuhTest2
@@ -24,7 +24,7 @@ namespace KuhTest2
 
         public Kuh(string Name, string Colour)
         {
-            // Hier wird die InvalidDataException geworfen, wenn der Name leer oder null ist
+           
             if (string.IsNullOrEmpty(Name))
             {
                 throw new InvalidDataException("Der Name darf nicht leer sein.");
