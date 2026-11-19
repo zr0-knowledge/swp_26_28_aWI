@@ -65,4 +65,4 @@ try {
     new Cat("Katze2", "grau", new Date(2099, 0, 1));
 } catch (e) {
     console.log("Fehler: " + (e as Error).message);
-}
+} 
