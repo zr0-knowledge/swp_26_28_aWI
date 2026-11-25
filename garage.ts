@@ -144,4 +144,4 @@ console.log(`Anzahl Fahrzeuge in der Garage: ${myGarage.anzahlFahrzeuge} davon A
 myGarage.addReifen(new Reifen("Michelin", 16, "Sommerreifen"));
 myGarage.addReifen(new Reifen("Continental", 17, "Winterreifen"));
 
-console.log(`Verkaufbare Dinge in der Garage: ${myGarage.verkaufbareDinge.length}`);
+console.log(`Verkaufbare Dinge in der Garage: ${myGarage.verkaufbareDinge.length}`); 
